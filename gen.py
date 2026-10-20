@@ -1,6 +1,4 @@
-import secrets
-import math
-import base64, os
+import secrets, math, base64, os
 
 if os.path.isfile("words.txt"):
   words = open("words.txt").read().split("\n")[:-1]
@@ -39,5 +37,5 @@ def randc(i):
     s+=secrets.choice('!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~')
   p=passphrase(i//8)
   b=base64.b64encode(os.urandom(math.ceil(3*i/4))).decode("ascii")
-  return "HEX: "o+"\nABC: "+a+"\nUNI: "+u+"\nB64: "+b+"\nASC: "+s+"\nPsP: "+p
+  return "HEX: "+o+"\nABC: "+a+"\nUNI: "+u+"\nB64: "+b+"\nASC: "+s+"\nPsP: "+p
 print(randc(33))
